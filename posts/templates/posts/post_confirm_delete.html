@@ -1,0 +1,22 @@
+{% extends 'posts/base.html' %}
+
+{% block content %}
+    <div class="content_section">
+        <form  action="" method="post"  enctype="multipart/form-data">
+            {% csrf_token %}
+            <fildset class="form-group">
+                <legend class="border-bottom mb-4">
+                    Delete Post
+                </legend>
+                <h2>Are You Sure want to delete the post "{{ object.title }}"</h2>
+            </fildset>
+            <div class="form-group">
+                <button class="btn btn-outline-danger" type="submit">
+                    Yes, Delete
+                </button>
+                <a class="btn btn-outline-secondary"
+                   href="{% url 'delete' object.id %}">Cancel</a>
+            </div>
+        </form>
+    </div>
+{% endblock %}
